@@ -13,6 +13,7 @@ const Profile = () => {
     return(
         <>
             <h1>Profile</h1>
+            <div className="">
             {
                 currentUser &&
                 <h2>Welcome {currentUser.username}!</h2>
@@ -22,6 +23,7 @@ const Profile = () => {
                 onClick={handleLogoutBtn}>
                 Logout
             </button>
+            </div>
         </>
     )
 }

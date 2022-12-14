@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findRandomJokeThunk, findJokeForTermThunk } from "./joke-thunks";
+import { findRandomJokeThunk, findJokeForTermThunk, findJokeByIDThunk } from "./joke-thunks";
 
 const initialState = {
   joke: [],
   loading: false,
-  jokes: []
+  jokes: [],
+  details: {}
 }
 
 const randomJokeReducer = createSlice({
@@ -16,6 +17,9 @@ const randomJokeReducer = createSlice({
     },
     [findJokeForTermThunk.fulfilled]: ( state, action) => {
       state.jokes = action.payload
+    },
+    [findJokeByIDThunk.fulfilled]: (state, action) => {
+      state.details = action.payload
     }
   }
 })

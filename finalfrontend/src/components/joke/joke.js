@@ -15,7 +15,7 @@ const Joke = () => {
   return (
     <>
       <h1>Receive a random Joke!</h1>
-      <div>
+      <div className="m-3" align="center">
         <button
           className="btn btn-primary center"
           onClick={() => {
@@ -25,8 +25,8 @@ const Joke = () => {
           Fetch Another!
         </button>
       </div>
-      <div>
-      <p>{joke.joke.joke}</p>
+      <div classname="" align="center">
+        <p>{joke.joke.joke}</p>
       </div>
     </>
   );

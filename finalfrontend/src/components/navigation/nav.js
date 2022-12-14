@@ -8,7 +8,8 @@ const Nav = () => {
     const parts = pathname.split('/')
     // console.log(parts)
     return(
-        <ul className="nav nav-pills">
+        <div className="">
+        <ul className="nav nav-pills float-end">
             <li className="nav-item">
                 <Link to="/"
                       className={`nav-link ${parts[1] === ''?'active': ''}`}>
@@ -46,6 +47,7 @@ const Nav = () => {
                 </Link>
             </li>
         </ul>
+        </div>
     )
 }
 

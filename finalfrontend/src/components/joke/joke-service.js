@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL='https://icanhazdadjoke.com/'
-
+const ID_URL = 'https://icanhazdadjoke.com/j/'
 const SEARCH_URL='https://icanhazdadjoke.com/search?term='
 
 export const findRandomJoke = async () => {
@@ -24,4 +24,14 @@ export const findJokeForTerm = async (term) => {
 
   // console.log(response.data.results)
   return response.data.results
+}
+
+export const findJokeByID = async (jid) => {
+  const response = await axios.get(`${ID_URL}${jid}`, {
+    headers: {
+      Accept: 'application/json'
+    }
+  })
+  // console.log(response.data)
+  return response.data
 }

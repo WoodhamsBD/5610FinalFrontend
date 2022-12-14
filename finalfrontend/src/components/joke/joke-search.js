@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { findJokeForTermThunk } from "./joke-thunks";
+import {Link} from "react-router-dom";
 
 const JokeSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  
   const { jokes, loading } = useSelector((state) => state.joke);
 
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const JokeSearch = () => {
         </li>
         {
           jokes && jokes.map((joke) =>
-          <li key={joke.id}>{joke.joke}</li>
+          <li key={joke.id} className="list-group-item"><Link to={`/details/${joke.id}`}>{joke.joke}</Link></li>
           )
         }
 

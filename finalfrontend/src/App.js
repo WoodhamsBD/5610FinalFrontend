@@ -10,7 +10,7 @@ import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Nav from "./components/navigation/nav";
 import CurrentUser from "./components/users/current-user";
 import usersReducer from "./components/users/users-reducer";
-import Landing from "./components/main/index";
+// import Landing from "./components/main/index";
 import ProtectedRoute from "./components/users/protected-route";
 import Users from "./components/users";
 import Login from "./components/users/login";
@@ -20,12 +20,15 @@ import Profile from "./components/users/profile";
 import Joke from "./components/joke/joke"
 import JokeSearch from "./components/joke/joke-search";
 import randomJokeReducer from './components/joke/joke-reducer'
-
+import JokeDetails from "./components/joke/joke-details";
+import commentReducer from "./components/comments/comment-reducer";
+import PublicProfile from "./components/users/public-profile"
 
 const store = configureStore({
   reducer: {
     users: usersReducer,
-    joke: randomJokeReducer
+    joke: randomJokeReducer,
+    comments: commentReducer
   },
 });
 
@@ -44,14 +47,15 @@ function App() {
                   <Users />
                 </ProtectedRoute>
               } />
+              <Route path="/details/:jokeID" element={<JokeDetails />} />
               <Route path="/login" element={<Login/>}/>
               <Route path="/register" element={<Register/>}/>
                             <Route path="/profile" element={
                                 <ProtectedRoute>
                                     <Profile/>
-                                </ProtectedRoute>
+                            </ProtectedRoute>
                             }/>     
-              {/* <Route path="/profile/:uid" element={<PublicProfile/>}/>                                      */}
+              <Route path="/profile/:uid" element={<PublicProfile/>}/>                                     
             </Routes>
           </CurrentUser>
         </BrowserRouter>

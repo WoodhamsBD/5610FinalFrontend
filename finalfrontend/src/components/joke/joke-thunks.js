@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { findRandomJoke, findJokeForTerm } from "./joke-service";
+import { findRandomJoke, findJokeForTerm, findJokeByID } from "./joke-service";
 
 
 export const findRandomJokeThunk = createAsyncThunk(
@@ -8,4 +8,8 @@ export const findRandomJokeThunk = createAsyncThunk(
 
 export const findJokeForTermThunk = createAsyncThunk(
   'findJokeForTerm', (term) => findJokeForTerm(term)
+)
+
+export const findJokeByIDThunk = createAsyncThunk(
+  'findJokeByID', (jid) => findJokeByID(jid)
 )
